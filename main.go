@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"github.com/vadiminshakov/exmo"
 	"math/big"
+	"os"
 )
 
 var (
@@ -22,11 +23,11 @@ func Init() {
 	sellsym = flag.String("sellsymbol", "RUB", "second symbol in currency pair")
 	offset = flag.Int("offset", 0, "last deal offset")
 	limit = flag.Int("limit", 100, "limit the number of displayed positions (default: 100, max: 1000)")
-	pub = flag.String("pub", "", "public API key")
-	secret = flag.String("secret", "", "private API key")
 	flag.Parse()
 
-	api = exmo.Api(*pub, *secret)
+	pub, secret := os.Getenv("EXMO_PUBLIC"), os.Getenv("EXMO_SECRET")
+
+	api = exmo.Api(pub, secret)
 }
 
 func main() {
