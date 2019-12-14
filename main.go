@@ -18,7 +18,7 @@ var (
 	secret  *string
 )
 
-func Init() {
+func init() {
 	buysym = flag.String("buysymbol", "BTC", "first symbol in currency pair")
 	sellsym = flag.String("sellsymbol", "RUB", "second symbol in currency pair")
 	offset = flag.Int("offset", 0, "last deal offset")
@@ -47,7 +47,7 @@ func Calculate(buySymbol, sellSymbol string, offset, limit int) {
 
 			for _, trade := range allTrades.([]interface{}) {
 				tradeData := trade.(map[string]interface{})
-				fmt.Println(tradeData["type"])
+
 				switch tradeData["type"] {
 				case "buy":
 
