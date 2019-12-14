@@ -74,5 +74,5 @@ func Calculate(buySymbol, sellSymbol string, offset, limit int) {
 	fmt.Printf("bought %s %s for %s %s\n", quantityBought.String(), buySymbol, bought.String(), sellSymbol)
 	fmt.Printf("sold %s %s for %s %s\n\n", quantitySold.String(), buySymbol, sold.String(), sellSymbol)
 	fmt.Printf("YOU HAVE NOW: %s %s\n", quantityBought.Sub(quantityBought, quantitySold).String(), buySymbol)
-	fmt.Printf("YOU SPENT TOTAL: %s %s\n", bought.Sub(bought, sold).String(), sellSymbol)
+	fmt.Printf("REAL VALUE TOTAL: %s %s\n", bought.Sub(bought, sold).String(), sellSymbol)
 }
